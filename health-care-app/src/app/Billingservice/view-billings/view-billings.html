@@ -1,0 +1,67 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Billing Records</h2>
+
+  <!-- Loading state -->
+  <div *ngIf="loading" class="alert alert-info">
+    Loading billings...
+  </div>
+
+  <!-- Error state -->
+  <div *ngIf="!loading && errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Empty state -->
+  <div *ngIf="!loading && !errorMessage && billings.length === 0" class="alert alert-warning">
+    No billing records found.
+  </div>
+
+  <!-- Billing table -->
+  <table *ngIf="!loading && billings.length > 0" class="table table-striped table-bordered shadow-sm">
+    <thead class="table-primary">
+      <tr>
+        <th>Bill ID</th>
+        <th>Patient ID</th>
+        <th>Appointment ID</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of billings">
+        <td>{{ bill.id }}</td>
+        <td>{{ bill.patientId }}</td>
+        <td>{{ bill.appointmentId || 'N/A' }}</td>
+        <td>{{ bill.amount | currency:'INR' }}</td>
+        <td>
+          <span 
+            [ngClass]="{
+              'badge bg-success': bill.status === 'PAID',
+              'badge bg-danger': bill.status === 'UNPAID'
+            }"
+          >
+            {{ bill.status }}
+          </span>
+        </td>
+        <td>{{ bill.createdAt | date:'short' }}</td>
+        <td>
+          <button 
+            *ngIf="bill.status === 'UNPAID'" 
+            class="btn btn-sm btn-success"
+            (click)="payBill(bill.id)">
+            Pay Bill
+          </button>
+          <span *ngIf="bill.status === 'PAID'" class="text-muted">✔ Paid</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+</div>
+
+<a href="add-billings" class="btn btn-success">
+   Add New Patient
+</a>

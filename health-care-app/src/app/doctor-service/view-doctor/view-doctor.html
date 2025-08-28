@@ -1,0 +1,38 @@
+<p>view-doctor works!</p>
+
+<h2>Doctor List</h2>
+
+<div *ngIf="isLoading">Loading doctors...</div>
+<div *ngIf="!isLoading && doctors.length === 0">No doctors found.</div>
+
+<table *ngIf="!isLoading && doctors.length > 0" border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Specialization</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Available</th>
+      <th>Actions</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doctor of doctors">
+      <td>{{ doctor.id }}</td>
+      <td>{{ doctor.name }}</td>
+      <td>{{ doctor.specialization }}</td>
+      <td>{{ doctor.email }}</td>
+      <td>{{ doctor.phone }}</td>
+      <td>{{ doctor.available ? 'Yes' : 'No' }}</td>
+      <td>
+        <button (click)="editDoctor(doctor.id)">Edit</button>
+        <button (click)="deleteDoctor(doctor.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="add-doctor" class="btn btn-success">
+   Add New Doctor
+</a>

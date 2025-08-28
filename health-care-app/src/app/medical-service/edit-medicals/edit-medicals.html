@@ -1,0 +1,27 @@
+<p>edit-medicals works!</p>
+
+<h2>Edit Medical Record</h2>
+<form #medicalForm="ngForm" (ngSubmit)="onSubmit()">
+
+  <label>Patient ID</label>
+  <input type="number" name="patientId" [(ngModel)]="medical.patientId"><br>
+
+  <label>Doctor ID</label>
+  <input type="number" name="doctorId" [(ngModel)]="medical.doctorId"><br>
+
+  <label>Visit Date</label>
+  <input type="date" name="visitDate" [(ngModel)]="medical.visitDate"><br>
+
+  <label>Diagnosis</label>
+  <input type="text" name="diagnosis" [(ngModel)]="medical.diagnosis"><br>
+
+  <label>Prescription</label>
+  <input type="text" name="prescription" [(ngModel)]="medical.prescription"><br>
+
+  <label>Lab Results</label>
+  <input type="text" name="labResults" [(ngModel)]="medical.labResults"><br>
+
+  <br><br>
+  <button type="submit">Update</button> &nbsp;&nbsp;
+  <button type="reset">Reset</button>
+</form>

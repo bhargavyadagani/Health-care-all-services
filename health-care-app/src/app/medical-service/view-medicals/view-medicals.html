@@ -1,0 +1,38 @@
+<p>view-medicals works!</p>
+<h2>Medical Records List</h2>
+<div *ngIf="isLoading">Loading medical records...</div>
+<div *ngIf="!isLoading && medicals.length === 0">No medical records found.</div>
+
+<table *ngIf="!isLoading && medicals.length > 0" border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Patient ID</th>
+      <th>Doctor ID</th>
+      <th>Visit Date</th>
+      <th>Diagnosis</th>
+      <th>Prescription</th>
+      <th>Lab Results</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of medicals">
+      <td>{{ record.id }}</td>
+      <td>{{ record.patientId }}</td>
+      <td>{{ record.doctorId }}</td>
+      <td>{{ record.visitDate }}</td>
+      <td>{{ record.diagnosis }}</td>
+      <td>{{ record.prescription }}</td>
+      <td>{{ record.labResults }}</td>
+      <td>
+        <button (click)="editMedical(record.id)">Edit</button>
+        <button (click)="deleteMedical(record.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="add-medical" class="btn btn-success">
+  Add New Medical Record
+</a>

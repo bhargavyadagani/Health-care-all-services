@@ -1,0 +1,85 @@
+.container {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 28px;
+  background: linear-gradient(135deg, #ffffff, #f0faff);
+  border-radius: 20px;
+  border: 2px solid #e0f2f1;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #004d40;
+  border-bottom: 3px solid #26a69a;
+  padding-bottom: 8px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  color: #37474f;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 2px solid #b2dfdb;
+  border-radius: 12px;
+  font-size: 15px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+input:hover, select:hover, textarea:hover {
+  border-color: #26a69a;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #7e57c2;
+  box-shadow: 0 0 8px rgba(126, 87, 194, 0.4);
+  outline: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #26a69a, #7e57c2);
+  color: #fff;
+  letter-spacing: 0.6px;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(90deg, #009688, #5e35b1);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.message {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.message.success {
+  background-color: #e0f2f1;
+  color: #00695c;
+  border: 1px solid #26a69a;
+}
+
+.message.error {
+  background-color: #fbe9e7;
+  color: #d84315;
+  border: 1px solid #ff8a65;
+}

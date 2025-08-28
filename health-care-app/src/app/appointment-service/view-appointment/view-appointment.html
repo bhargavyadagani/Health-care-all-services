@@ -1,0 +1,44 @@
+<p>view-appointment works!</p>
+<div class="container">
+  <h2>Appointments</h2>
+
+  <div *ngIf="appointments.length === 0">
+    <p>No appointments found.</p>
+  </div>
+
+  <table *ngIf="appointments.length > 0" class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Appointment ID</th>
+        <th>Patient ID</th>
+        <th>Doctor ID</th>
+        <th>Doctor Name</th>
+        <th>Specialization</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Action</th> <!-- ✅ new column -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.id }}</td>
+        <td>{{ appointment.patientId }}</td>
+        <td>{{ appointment.doctor?.id }}</td>
+        <td>{{ appointment.doctor?.name }}</td>
+        <td>{{ appointment.doctor?.specialization }}</td>
+        <td>{{ appointment.appointmentTime | date:'short' }}</td>
+        <td>{{ appointment.status }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm"
+                  (click)="deleteAppointment(appointment.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a href="add-appointment" class="btn btn-success">
+   Add New appointment
+</a>
+</div>

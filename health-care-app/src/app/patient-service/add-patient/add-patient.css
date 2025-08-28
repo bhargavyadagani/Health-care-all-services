@@ -1,0 +1,82 @@
+/* Container styling */
+.container {
+  max-width: 500px; /* smaller width */
+  margin: 30px auto;
+  padding: 20px; /* slightly smaller padding */
+  background: #e3f2fd; /* light blue background */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2); /* stronger shadow */
+  font-family: Arial, sans-serif;
+  border: 1px solid #90caf9;
+}
+
+/* Form heading */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1e88e5; /* darker blue */
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+  color: #0d47a1;
+}
+
+/* Input & select styling */
+.form-control {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #90caf9;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.form-control:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 8px rgba(25, 118, 210, 0.4);
+  outline: none;
+  background-color: #ffffff;
+}
+
+/* Submit button */
+button.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #42a5f5, #1e88e5); /* gradient button */
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.btn:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}
+
+button.btn:hover:not(:disabled) {
+  background: linear-gradient(90deg, #1e88e5, #1565c0);
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  .container {
+    padding: 15px;
+  }
+
+  button.btn {
+    font-size: 14px;
+  }
+}

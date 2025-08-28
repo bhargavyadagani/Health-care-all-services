@@ -1,0 +1,43 @@
+<p>add-medicals works!</p>
+<div class="container mt-4">
+  <h2>Add Medical Record</h2>
+
+  <form (ngSubmit)="onSubmit()" #medicalForm="ngForm">
+
+    <div class="mb-3">
+      <label class="form-label">Patient ID</label>
+      <input type="number" class="form-control" [(ngModel)]="medical.patientId" name="patientId" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Doctor ID</label>
+      <input type="number" class="form-control" [(ngModel)]="medical.doctorId" name="doctorId" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Visit Date</label>
+      <input type="date" class="form-control" [(ngModel)]="medical.visitDate" name="visitDate" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Diagnosis</label>
+      <input type="text" class="form-control" [(ngModel)]="medical.diagnosis" name="diagnosis" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Prescription</label>
+      <input type="text" class="form-control" [(ngModel)]="medical.prescription" name="prescription" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Lab Results</label>
+      <input type="text" class="form-control" [(ngModel)]="medical.labResults" name="labResults">
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!medicalForm.form.valid">
+      Add Medical Record
+    </button>
+  </form>
+
+  <p class="mt-3 text-success">{{ message }}</p>
+</div>
